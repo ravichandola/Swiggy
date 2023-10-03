@@ -38,17 +38,17 @@ const Header = () =>{
         </div>
     )
 }
-const RestaurantCard =()=>{
+const RestaurantCard =({resName,cusine,rating,ETA})=>{
     return(
         <div className="restaurant-card">
             <img 
             className="restaurant-logo"
             src="https://b.zmtcdn.com/data/pictures/chains/1/50691/ecfdc75d21bd7cd9d880f05c8382bc65.jpg"
              alt="restaurant-logo" />
-              <h3>Meghna Foods</h3>
-              <h4>Biryani,North Indian,Asian</h4>
-              <h4>4.8*</h4>
-              <h4>38 Minutes</h4>
+              <h3>{resName}</h3>
+              <h4>{cusine}</h4>
+              <h4>{rating}</h4>
+              <h4>{ETA}</h4>
 
         </div>
     )
@@ -59,7 +59,19 @@ const Body = () =>{
             <div className="search"></div>
             <div className="restaurant-container">
                 <div className="restaurant-cards">
-                    <RestaurantCard/>
+                    <RestaurantCard
+                     resName = "Meghna Foods"
+                     cusine = "Biryani, North Indian, Asian"
+                     rating = "4.8"
+                     ETA = "35 minutes"
+                     />
+                     <RestaurantCard
+                     resName = "KFC"
+                     cusine = "Burger, Fast Food"
+                     rating = "4.2"
+                     ETA = "12 minutes"
+                     />
+                     
                 </div>
             </div>
         </div>
