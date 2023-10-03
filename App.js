@@ -19,81 +19,69 @@ import ReactDOM from "react-dom";
     -Link
     -Contact Information
  */
-const Header = () =>{
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img 
-                className="logo"
-                src="https://www.shutterstock.com/image-vector/food-logo-smile-label-company-250nw-1271590297.jpg"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-const RestaurantCard =(props)=>{
-    const {resData} = props;
-    const {
-        cloudinaryImageId,
-        name,
-        avgRating,
-        cuisines,
-        costForTwo,
-        deliveryTime,
-      } = resData?.data;
-    
-    return(
-        <div className="restaurant-card">
-            <img 
-            className="restaurant-logo"
-            src={
-                "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-                cloudinaryImageId
-              }/>
-              <h3>{name}</h3>
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://www.shutterstock.com/image-vector/food-logo-smile-label-company-250nw-1271590297.jpg"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const {
+    cloudinaryImageId,
+    name,
+    avgRating,
+    cuisines,
+    costForTwo,
+    deliveryTime,
+  } = resData?.data;
+
+  return (
+    <div className="restaurant-card">
+      <img
+        className="restaurant-logo"
+        alt="restaurant-logo"
+        src={
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+          cloudinaryImageId
+        }
+      />
+      <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} stars</h4>
       <h4>₹{costForTwo / 100} FOR TWO</h4>
       <h4>{deliveryTime} minutes</h4>
-
-        </div>
-    )
-}
-const Body = () =>{
-    return(
-        <div className="body">
-            <div className="search"></div>
-            <div className="restaurant-container">
-                <div className="restaurant-cards">
-                {resList.map((restaurant) => (
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search"></div>
+      <div className="restaurant-container">
+        {resList.map((restaurant) => (
           <RestaurantCard key={restaurant.data.id} resData={restaurant} />
         ))}
-                     
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const Applayout = () =>{
-    return(
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    ) 
-}
-
+      </div>
+    </div>
+  );
+};
 
 const resList = [
-    
   {
     type: "restaurant",
     data: {
@@ -1976,8 +1964,15 @@ const resList = [
     },
     subtype: "basic",
   },
-]
-
+];
+const Applayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout/>);
+root.render(<Applayout />);
