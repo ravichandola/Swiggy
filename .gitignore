@@ -1,2 +1,38 @@
+# Dependency directories
 node_modules/
-dist
+
+# Environment variables
+.env
+
+# Build output
+/build
+/dist
+.cache/
+
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# User-specific files
+*.iml
+*.log
+*.swp
+*.swo
+*.DS_Store
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# Automatically generated files
+.DS_Store
+Thumbs.db
